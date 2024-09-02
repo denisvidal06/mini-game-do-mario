@@ -1,0 +1,143 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: green;
+    --secondary-color: white;
+    --font-size-button: 1.5rem;
+    --animation-speed-clouds: 20s;
+    --animation-speed-pipe: 2s;
+}
+.game{
+    width: 100%;
+    height: 100vh;
+    border-bottom: 30px solid var(--primary-color);
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(#87ceeb, #e0f6ff);
+}
+
+button {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-size: var(--font-size-button);
+    border: none;
+    padding: 1rem;
+    position: absolute;
+    right: 50vw;
+    top: 50vh;
+    cursor: pointer;
+    z-index: 1;
+    transition: background 0.3s ease, color 0.3s ease, border 0.3s ease;
+
+}
+
+button:hover {
+    border: 2px solid var(--primary-color));
+    background: none;
+    color: var(--primary-color);
+}
+
+.game-over {
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.322);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.game-over h1 {
+    font-size: 3rem;
+    color: red;
+    text-align: center;
+    margin-top: 15rem;
+}
+
+.pipe {
+    position: absolute;
+    bottom: 0;
+    right: -80px;
+    width: 80px;
+    animation: pipe-animation var(--animation-speed-pipe) infinite linear;
+}
+
+.mario{
+    width: 150px;
+    position: absolute;
+    bottom: 0;
+}
+
+.clouds {
+    width: 550px;
+    position: absolute;
+    top: 0;
+    animation: clouds-animation var(--animation-speed-clouds) infinite linear;
+}
+
+.jump-counter {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
+    z-index: 2;
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    font-weight: bold;
+    
+}
+
+@keyframes clouds-animation {
+    from {
+        right: -550px;
+    }
+    to {
+        right: 100%;
+    }
+}
+
+@keyframes pipe-animation {
+    from {
+        right: -80px;
+    }
+    to {
+        right: 100%;
+    }
+}
+
+.jump {
+    animation: jump 800ms ease-out;
+}
+
+@keyframes jump {
+    0% {
+        bottom: 0;
+    }
+
+    40% {
+        bottom: 200px;
+    }
+
+    50% {
+        bottom: 200px;
+    }
+
+    60% {
+        bottom: 200px;
+    }
+
+    100% {
+        bottom: 0;
+    }
+}
